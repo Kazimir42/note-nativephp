@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -27,5 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/notify', [\App\Http\Controllers\TestController::class, 'notify'])->name('test.notify');
+
+Route::post('/notes', [\App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
 
 require __DIR__.'/auth.php';
