@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('/notify', [\App\Http\Controllers\TestController::class, 'notify'])->name('test.notify');
+Route::post('/dialog', [\App\Http\Controllers\TestController::class, 'dialog'])->name('test.dialog');
 
 Route::post('/notes', [\App\Http\Controllers\NoteController::class, 'store'])->name('notes.store');
 
